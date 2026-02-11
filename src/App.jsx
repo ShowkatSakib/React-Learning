@@ -1,16 +1,20 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
 
-const App = () => {      //arrow function
+
+const App = () => {      
   return (
     <div>
-      <Header/>
-      <Hero/>
-      <ContactForm/>
-      <Footer/>
+          <h1> Hello </h1>
+          <h1> World </h1>
+          <h1> {2+2} </h1>
+          <h1> {new Date().getTime()} </h1>
+          <br/>
+          <p/>
+          <h1 className=""> </h1>
+          <h1 style={
+            {color:'red'}
+          }> hi </h1>
+          <button onClick={()=> alert("Hello")}> Submit </button>
     </div>
   );
 };
