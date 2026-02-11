@@ -1,38 +1,30 @@
 import React from 'react';
+import DataPass from './components/DataPass';
+import ObjectPass from './components/ObjectPass';
+import FuctionPass from './components/FuctionPass';
 
-//uisng if else-----------------------------------------------------------
-const LoginStatusBtn=(status)=>{    //status parameter
-  if(status){    //if status true
-    return <button>Logout Btn</button>
-  }
-  else{
-     return <button>Login Btn</button>
-  }
-}
+
 
 const App = () => {  
       
 
-  let status2= false;
+  const itemObj={
+    name:'sakib',
+    age:23,
+    city:'dhaka'
+  }
+
+  const BtnClick=()=>{
+    alert("Say Hello!");
+  }
 
   return (
     <div>  
-        <h1> Login Status</h1>
-        {LoginStatusBtn(true)}
-       
-       <br/>
-       <br/>
-       
-        {(()=>{
-          if(status2==true){
-            return <button> Logout Btn</button>
-          }
-          else{
-            return <button> Login Btn</button>
-          }
-        })()
 
-        }
+        <DataPass title="Learn React" des="In detailsd Props"/>
+        <ObjectPass item={itemObj}/>
+        <FuctionPass childBtnClick={BtnClick}/>
+
     </div>
 
   );
