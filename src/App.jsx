@@ -1,21 +1,40 @@
 import React from 'react';
 
+//uisng if else-----------------------------------------------------------
+const LoginStatusBtn=(status)=>{    //status parameter
+  if(status){    //if status true
+    return <button>Logout Btn</button>
+  }
+  else{
+     return <button>Login Btn</button>
+  }
+}
 
 const App = () => {  
       
-  const city = ['Dhaka','Kolkata','Delhi'];
+
+  let status2= false;
+
   return (
     <div>  
-      <ol>
-      {
-        city.map((item, i)=>{
+        <h1> Login Status</h1>
+        {LoginStatusBtn(true)}
+       
+       <br/>
+       <br/>
+       
+        {(()=>{
+          if(status2==true){
+            return <button> Logout Btn</button>
+          }
+          else{
+            return <button> Login Btn</button>
+          }
+        })()
 
-            return <li key={i.toString}> {item} </li>
-        })
-      }
-      
-      </ol>
+        }
     </div>
+
   );
 };
 
