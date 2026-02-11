@@ -1,20 +1,32 @@
 import React from 'react';
 
 
-const App = () => {      
+const App = () => {  
+  
+  const marks=90;    
   return (
     <div>
-          <h1> Hello </h1>
-          <h1> World </h1>
-          <h1> {2+2} </h1>
-          <h1> {new Date().getTime()} </h1>
-          <br/>
-          <p/>
-          <h1 className=""> </h1>
-          <h1 style={
-            {color:'red'}
-          }> hi </h1>
-          <button onClick={()=> alert("Hello")}> Submit </button>
+      {
+        marks > 80?
+        <h1> Brilliant Result </h1>
+        :
+        <h1> Average Result </h1>
+      }
+
+
+
+      {
+       (
+        ()=>{
+              if(marks>=80 && marks <100){
+                return <h1> A+ </h1>}
+              else if(marks>=70 && marks <80){
+                return <h1> A </h1>}
+              else{ 
+                return <h1> F </h1>}
+        }
+       ) ()
+      }
     </div>
   );
 };
