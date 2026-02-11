@@ -1,29 +1,23 @@
 import React from 'react';
-import DataPass from './components/DataPass';
-import ObjectPass from './components/ObjectPass';
-import FuctionPass from './components/FuctionPass';
-
 
 
 const App = () => {  
       
-
-  const itemObj={
-    name:'sakib',
-    age:23,
-    city:'dhaka'
-  }
-
-  const BtnClick=()=>{
-    alert("Say Hello!");
-  }
+function handleClick(){
+  alert('Hello');
+}
 
   return (
     <div>  
 
-        <DataPass title="Learn React" des="In detailsd Props"/>
-        <ObjectPass item={itemObj}/>
-        <FuctionPass childBtnClick={BtnClick}/>
+      {/*<button onClick={alert('Hello')}> Click me </button>*/}
+
+      <button onClick={()=>{
+        alert('Hello')
+      }}> Click me </button>
+
+
+      <button onClick={handleClick}> Click me again </button>
 
     </div>
 
