@@ -2,31 +2,19 @@ import React from 'react';
 
 
 const App = () => {  
-  
-  const marks=90;    
+      
+  const city = ['Dhaka','Kolkata','Delhi'];
   return (
-    <div>
+    <div>  
+      <ol>
       {
-        marks > 80?
-        <h1> Brilliant Result </h1>
-        :
-        <h1> Average Result </h1>
+        city.map((item, i)=>{
+
+            return <li key={i.toString}> {item} </li>
+        })
       }
-
-
-
-      {
-       (
-        ()=>{
-              if(marks>=80 && marks <100){
-                return <h1> A+ </h1>}
-              else if(marks>=70 && marks <80){
-                return <h1> A </h1>}
-              else{ 
-                return <h1> F </h1>}
-        }
-       ) ()
-      }
+      
+      </ol>
     </div>
   );
 };
