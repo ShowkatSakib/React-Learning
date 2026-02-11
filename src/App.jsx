@@ -3,21 +3,15 @@ import React from 'react';
 
 const App = () => {  
       
-function handleClick(){
-  alert('Hello');
+const postFormData=(event)=>{
+  event.preventDefault();
 }
-
   return (
     <div>  
-
-      {/*<button onClick={alert('Hello')}> Click me </button>*/}
-
-      <button onClick={()=>{
-        alert('Hello')
-      }}> Click me </button>
-
-
-      <button onClick={handleClick}> Click me again </button>
+      <form onSubmit={postFormData}>
+        <input placeholder="Name"/>
+        <button type="submit"> Submit </button>
+      </form>
 
     </div>
 
