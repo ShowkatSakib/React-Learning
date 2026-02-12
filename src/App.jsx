@@ -1,29 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 
 const App = () => {  
       
-  let APIData = useRef(null);   // initial value null
-  let myPara = useRef();
+  const[number, setNumber]= useState(0);
 
-  const fetchData = async () =>{
-   const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");   //await for wait respond
-   APIData.current=await response.json();   //store as a json onject 
-
+  const change=()=>{
+    setNumber(number+1);
   }
-
-  const showData = () =>{
-   myPara.current.innerText=JSON.stringify(APIData.current)   // convert json into string
-
-  }
-
 
   return (
     <div>  
       
-      <p ref={myPara}></p>
-      <button onClick={fetchData}> Call API</button>   
-      <button onClick={showData}> Show API</button> 
+      <h1> Number:{number}</h1>
+      <button onClick={change}> Click</button> 
 
     </div>
 
