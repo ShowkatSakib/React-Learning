@@ -1,32 +1,43 @@
 import React, { useState } from 'react';
 
 
-const App = () => {  
-      
-  const[myObj, setMyObj]= useState({
-    key1: "value 1",
-    key2: "value 2",
-    key3: "value 3"
+const App = () => { 
+  const [list, setList]= useState([])   // items are add to list
+  const [item, setItem]= useState("")   // elements of a list
+    
 
-  })
-
-  const change=()=>{
-    setMyObj(
-      prevObj=>({
-        ...prevObj,
-        key1:"New value for key 1",
-        key2:"New value for key 2"
-      })
-    )
+  const AddToList=()=>{
+    list.push(item)     //add item in list 
+    setList([...list]);   // updated list 
   }
 
-  return (
-    <div>  
+  const RemoveItem=(index)=>{
+    list.splice(index,1)    //1 item delete and use splice
+    setList([...list]);   // updated list
+  }
+
+  return (    /*if list of item > 0 then show item */
+    <div>    
       
-      <h1> {myObj.key1}</h1>
-      <h1> {myObj.key2}</h1>
-      <h1> {myObj.key3}</h1>
-      <button onClick={change}> Click</button> 
+      <table>
+        <tbody>
+          {  
+            list.length !== 0?(                   
+              list.map((element, index)=>{   
+                return(
+                <tr>
+                  <td>{element}</td>
+                  <td><button onClick={()=>{RemoveItem(index)}}> Remove </button></td>
+                </tr>
+                )
+              })
+              
+            ):(<tr></tr>)
+          }
+        </tbody>
+      </table>
+      <input onChange={(e)=> setItem(e.target.value)} placeholder='Item'/>   {/*find input item value*/}
+      <button onClick={AddToList}> Add</button> 
 
     </div>
 
