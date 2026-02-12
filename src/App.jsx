@@ -3,21 +3,18 @@ import React, { useRef } from 'react';
 
 const App = () => {  
       
-  let firstName = useRef();
-  let lastName = useRef();
+  let myHeadLine = useRef();
 
   const change = () =>{
-    let fname = firstName.current.value;   //to pick input value
-    let lname = lastName.current.value;
+    myHeadLine.current.classList.remove('text-success');   //to remove 'text-success' css class
+    myHeadLine.current.classList.add('text-danger');  //to add 'text-danger' css class
 
-    alert(fname+" "+lname);
   }
 
 
   return (
     <div>  
-      <input ref={firstName} placeholder='First Name'/><br/>
-      <input ref={lastName} placeholder='Last Name'/><br/>
+      <h1 className='text-success' ref={myHeadLine}> Sakib Learning bootstrap </h1>
       <button onClick={change}> Click me</button>
 
     </div>
