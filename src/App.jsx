@@ -3,11 +3,17 @@ import React, { useRef } from 'react';
 
 const App = () => {  
       
-  let number = useRef(0);   // initial value 0
+  let APIData = useRef(null);   // initial value null
+  let myPara = useRef();
 
-  const change = () =>{
-   number.current++;
-   console.log(number.current);
+  const fetchData = async () =>{
+   const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");   //await for wait respond
+   APIData.current=await response.json();   //store as a json onject 
+
+  }
+
+  const showData = () =>{
+   myPara.current.innerText=JSON.stringify(APIData.current)   // convert json into string
 
   }
 
@@ -15,7 +21,9 @@ const App = () => {
   return (
     <div>  
       
-      <button onClick={change}> Click me</button>   {/* no reference in return body so no DOM manupilation*/}
+      <p ref={myPara}></p>
+      <button onClick={fetchData}> Call API</button>   
+      <button onClick={showData}> Show API</button> 
 
     </div>
 
