@@ -3,16 +3,29 @@ import React, { useState } from 'react';
 
 const App = () => {  
       
-  const[number, setNumber]= useState(0);
+  const[myObj, setMyObj]= useState({
+    key1: "value 1",
+    key2: "value 2",
+    key3: "value 3"
+
+  })
 
   const change=()=>{
-    setNumber(number+1);
+    setMyObj(
+      prevObj=>({
+        ...prevObj,
+        key1:"New value for key 1",
+        key2:"New value for key 2"
+      })
+    )
   }
 
   return (
     <div>  
       
-      <h1> Number:{number}</h1>
+      <h1> {myObj.key1}</h1>
+      <h1> {myObj.key2}</h1>
+      <h1> {myObj.key3}</h1>
       <button onClick={change}> Click</button> 
 
     </div>
