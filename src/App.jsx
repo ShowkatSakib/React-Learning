@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const App = () => { 
 
+    let [data, setDta]= useState();
+
     useEffect(()=>{
-      console.log("Hello")
-    },[110,222,33,4])       //any change of value execute useEffect() method
+      fetch('https://jsonplaceholder.typicode.com/todos/1')   //api call or request using fetch to come response
+      .then(response => response.json())   //respose convert to json
+      .then(json => setDta(json))     //json data set into setData
+    },[])      
 
   
 
   return (  
     <div >
-      
+      {JSON.stringify(data)}
     </div>  
     
 
