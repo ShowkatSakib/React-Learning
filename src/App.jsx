@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import ProfilePage from "./pages/ProfilePage";
+import NotFound from "./pages/NotFound";
+
 
 
 const App = () => { 
 
-    let [data, setData]= useState();
-
-    useEffect(()=>{
-      (async()=>{
-
-      let response= await fetch('https://jsonplaceholder.typicode.com/todos/1')   //api call or request using fetch to come response
-      let json= await response.json()   //respose convert to json
-      setData(json)     //json data set into setData
-
-      })()
-
-
-    },[])      
-
-  
-
   return (  
     <div >
-      {JSON.stringify(data)}
+      <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage/>}></Route>
+              <Route path="/product" element={<ProductPage/>}></Route>
+              <Route path="/profile" element={<ProfilePage/>}></Route>
+              <Route path="*" element={<NotFound/>}></Route>
+
+            </Routes>
+      </BrowserRouter>
+      
     </div>  
     
 
