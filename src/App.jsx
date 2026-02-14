@@ -13,8 +13,8 @@ const App = () => {
       <BrowserRouter>
             <Routes>
               <Route path="/" element={<HomePage/>}></Route>
-              <Route path="/product" element={<ProductPage/>}></Route>
-              <Route path="/profile" element={<ProfilePage/>}></Route>
+              <Route path="/product/:id/:name" element={<ProductPage/>}></Route>
+              <Route path="/profile/:facebookID" element={<ProfilePage/>}></Route>
               <Route path="*" element={<NotFound/>}></Route>
 
             </Routes>
